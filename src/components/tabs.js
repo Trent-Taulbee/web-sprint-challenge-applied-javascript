@@ -17,27 +17,13 @@ const Tabs = (topics) => {
   const topicsDiv = document.createElement('div');
   topicsDiv.classList.add('topics');
 
-// topics.forEach(() => {
-//   const topicsElem = document.createElement('div');
-  
-//   topicsElem.classList.add('tab');
-
-//   topicsDiv.appendChild(topicsElem);
-
-//   topicsElem.textContent=topics;
-
 for (let i = 0; i < topics.length; i++) {
   const topicsElem = document.createElement('div');
   topicsElem.classList.add('tab');
   topicsDiv.appendChild(topicsElem);
   topicsElem.textContent = topics[i];
 }
-
-
 return topicsDiv;
-
-
-
 }
 
 const tabsAppender = (selector) => {
@@ -48,6 +34,15 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+  let tabsFromCss = Header("test1",'test2','test3');
+
+  let style = document.querySelector(selector);
+  
+  style.append(headerFromCss)
+  
+  return headerFromCss;
+
+
 }
 
 export { Tabs, tabsAppender }
