@@ -46,8 +46,17 @@ const headerAppender = (selector) => {
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
+const headerFromCss = Header("test1",'test2','test3');
 
-  
+const style = document.querySelector(selector);
+
+
+headerFromCss.classList.add(style);
+
+
+
+return headerFromCss;
+
 }
 
 export { Header, headerAppender }
