@@ -34,13 +34,13 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-  let tabsFromCss = Header("test1",'test2','test3');
+  let tabsFromCss = document.createElement('div').src= axios.get(URL,("http://localhost:5001/api/topics"));
 
-  let style = document.querySelector(selector);
+  const style = document.querySelector(selector);
   
-  style.append(headerFromCss)
+  style.append(tabsFromCss);
   
-  return headerFromCss;
+  return tabsFromCss;
 
 
 }
