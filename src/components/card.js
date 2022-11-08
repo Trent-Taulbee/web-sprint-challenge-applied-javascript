@@ -22,20 +22,25 @@ const headlineDiv = document.createElement('div');
 const authorDiv = document.createElement('div');
 const imgContainerDiv = document.createElement('div');
 const authorNameSpan = document.createElement('span');
+const authorImage = document.createElement('img');
 
 cardDiv.appendChild(headlineDiv);
 cardDiv.appendChild(authorDiv);
 authorDiv.appendChild(imgContainerDiv);
 authorDiv.appendChild(authorNameSpan);
+imgContainerDiv.appendChild(authorImage);
+
 
 cardDiv.classList.add('card');
 headlineDiv.classList.add('headline');
 authorDiv.classList.add('author');
 imgContainerDiv.classList.add('img-container');
+authorImage.classList.add('img');
 
 headlineDiv.textContent = article.headline;
-imgContainerDiv.textContent = article.authorPhoto;
 authorNameSpan.textContent = article.authorName;
+authorImage.src=article.authorPhoto;
+
 
 return cardDiv;
 
