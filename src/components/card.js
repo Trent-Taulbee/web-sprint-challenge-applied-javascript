@@ -59,10 +59,17 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
   const style = document.querySelector(selector);
-  axios.get(`http://localhost:5001/api/articles`)
-    .then ((response) => {
-      response.data.forEach(style.appendChild(Card(response.data)));
-    })
+  let promises = [];
+  axios.get('http://localhost:5001/api/articles')
+    .then((resp) => promises.push(resp));
+    console.log(promises);
+
+ for (let i = 0; i<promises.length; i++) {
+    document.createElement(selector);
+    const articlesCard = Card.promises[i];
+    style.appendChild(promises[i]);
+    return articlesCard;
+ }
 }
 
 export { Card, cardAppender }
