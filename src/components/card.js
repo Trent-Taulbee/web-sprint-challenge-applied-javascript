@@ -58,18 +58,25 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  const style = document.querySelector(selector);
-  let promises = [];
-  axios.get('http://localhost:5001/api/articles')
-    .then((resp) => promises.push(resp));
-    console.log(promises);
+const API_URL = 'http://localhost:5001/api/articles';
+const style = document.querySelector(selector);
 
- for (let i = 0; i<promises.length; i++) {
-    document.createElement(selector);
-    const articlesCard = Card.promises[i];
-    style.appendChild(promises[i]);
-    return articlesCard;
- }
-}
+  async function getArticles() {
+    const response = await fetch(API_URL);
+    const json = await response.json();
+    console.log(json.message);
+
+    json.message.forEach(article => {
+      const articleElement = document.createElement('div');
+      articleElement.classList.add(style);
+
+      const cardElement = document.createElement('div')
+      cardElement.classList.add(Card);
+      articleElement.appendChild(Card);
+    })
+  }
+ return getArticles(API_URL);
+  }
+
 
 export { Card, cardAppender }

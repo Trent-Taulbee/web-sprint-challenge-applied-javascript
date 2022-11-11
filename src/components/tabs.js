@@ -58,8 +58,8 @@ const arrTopics = (topics) => {
   }
   return topicsDiv
 }
+ ;
 const style = document.querySelector(selector);
-
 axios.get(`http://localhost:5001/api/topics`)
   .then((resp) => {
     const topicsInfo = arrTopics(divCreate(resp.data.topics))
