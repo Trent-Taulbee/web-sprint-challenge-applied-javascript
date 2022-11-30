@@ -60,17 +60,24 @@ const cardAppender = (selector) => {
   //
   const style = document.querySelector(selector);
   
-  axios.get(`http://localhost:5001/api/articles`)
-    .then(resp => {
-      const headlines = resp.values(articles.articles).flat().map(headlines)
-      for (let i = 0; i < headlines.length; i++){
-        const newCard = Card(screen.findByText(headlines[i]));
-        return newCard;
-      }
-    })
-    .catch( err => console.error(err))
+  const getCall = axios.get(`http://localhost:5001/api/articles`)
+  console.log(getCall);
 
-  }
+  
+  // axios.get(`http://localhost:5001/api/articles`)
+  //   .then(resp => {
+  //     console.log(resp);
+  //     resp.data.forEach(headline => {
+  //       const card = Card(headline)
+  //       style.appendChild(card);
+  //       return card;
+  //     })
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     })
+    
+}
 
 
 export { Card, cardAppender }
