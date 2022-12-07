@@ -1,5 +1,5 @@
 import axios from "axios";
-import { response } from "express";
+// import { response } from "express";
 
 const Card = (article) => {
   // TASK 5
@@ -58,12 +58,18 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  const style = document.querySelector(selector);
-  
-  const getCall = axios.get(`http://localhost:5001/api/articles`)
-  console.log(getCall);
-
-  
+  const style = document.querySelector(selector); 
+   
+  let axiosget =  axios.get(`http://localhost:5001/api/articles`)
+    .then(resp => {
+      const articles = Object.entries(resp.data.articles)
+      const articlesCard = Card(forEach(articles));
+      style.appendChild(articlesCard);
+      })
+      .catch(err => {
+        console.error(err);
+      })
+      return axiosget;
   // axios.get(`http://localhost:5001/api/articles`)
   //   .then(resp => {
   //     console.log(resp);
