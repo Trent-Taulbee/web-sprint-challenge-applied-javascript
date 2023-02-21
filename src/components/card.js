@@ -60,8 +60,10 @@ const cardAppender = (selector) => {
   //
   const style = document.querySelector(selector)
   axios.get('http://localhost:5001/api/articles')
-  .then((resp) => {console.log(resp.data.articles.headline)
-    resp.data.articles.headline.forEach((articleNew) =>{console.log(articleNew)
+  .then((resp) => {console.log(resp.data.articles)
+    let respArticles = resp.data.articles
+    //Will make card out of javascript articles but does not proceed to other articles because it is returning as object instead of an array
+    respArticles.forEach((articleNew) =>{console.log(articleNew)
     let newCard = Card(articleNew);
     console.log(newCard)
     style.appendChild(newCard)
